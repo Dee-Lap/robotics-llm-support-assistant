@@ -1,2 +1,2 @@
 # robotics-llm-support-assistant
-Public reconstruction of an LLM-powered robotics support chatbot developed during my AI research work. Demonstrates context-augmented prompting, Hugging Face LLM integration, Flask deployment, and conversational AI evaluation.
+This project is a public reconstruction of an LLM-powered robotics support assistant originally developed during my research assistantship at Penn State. The original system supported 29 students during a robotics competition. This reconstruction demonstrates the same core concepts: context-augmented prompting, LLM integration, conversational interfaces, and interaction evaluation.
