@@ -2,6 +2,14 @@ import json
 import csv
 from datetime import datetime
 
+import torch
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+MODEL_NAME = "HuggingFaceTB/SmolLM2-360M-Instruct"
+
+tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+
+model = AutoModelForCausalLM.from_pretrained(MODEL_NAME)
 
 def load_context():
     with open("data/context.json", "r") as file:
@@ -14,7 +22,7 @@ def load_prompt_template():
 
 
 def build_prompt(question):
-    context = load_context()
+    context = format_context(load_context())
     template = load_prompt_template()
 
     prompt = template.format(
@@ -52,16 +60,40 @@ def generate_response(question):
 
     prompt = build_prompt(question)
 
-    # Placeholder until Hugging Face is connected
-    response = f"""
-Generated response using prompt:
+    inputs = tokenizer(
+        prompt,
+        return_tensors="pt"
+    )
 
-{prompt}
+    outputs = model.generate(
+        **inputs,
+        max_new_tokens=150,
+        temperature=0.7,
+        do_sample=True
+    )
 
-[LLM RESPONSE WILL GO HERE]
-"""
+    response = tokenizer.decode(
+        outputs[0],
+        skip_special_tokens=True
+    )
 
     if validate_response(response):
         save_conversation(question, response)
 
     return response
+
+def format_context(context):
+    lines = []
+
+    competition = context["robotics_competition"]["description"]
+    lines.append(f"Competition: {competition}\n")
+
+    lines.append("Hardware Tips:")
+    for item in context["hardware"]:
+        lines.append(f"- {item}")
+
+    lines.append("\nSoftware Tips:")
+    for item in context["software"]:
+        lines.append(f"- {item}")
+
+    return "\n".join(lines)

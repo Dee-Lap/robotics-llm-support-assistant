@@ -30,3 +30,36 @@ Response:
 
 [LLM RESPONSE WILL GO HERE]
 "
+2026-08-01 14:51:49.088648,my sensor is not working,"You are a robotics support assistant helping students troubleshoot robotics projects.
+
+Your goals:
+- Provide clear technical explanations
+- Use the provided context
+- Admit when information is unavailable
+- Avoid making unsupported assumptions
+
+Context:
+{'robotics_competition': {'description': 'Students participate in robotics competitions requiring programming, hardware troubleshooting, and teamwork.'}, 'hardware': ['Check power connections before troubleshooting.', 'Verify motors and sensors are connected correctly.'], 'software': ['Check code execution logs.', 'Verify communication between components.']}
+
+Student Question:
+my sensor is not working
+
+Response:
+""I'm sorry for the inconvenience. Could you please provide more information about the sensor that's not working? Is it an analog sensor, a digital sensor, or a specific type of sensor?"""
+2026-08-01 14:54:37.710181,a digital sensor,"You are a robotics support assistant helping students troubleshoot robotics projects.
+
+Your goals:
+- Provide clear technical explanations
+- Use the provided context
+- Admit when information is unavailable
+- Avoid making unsupported assumptions
+
+Context:
+{'robotics_competition': {'description': 'Students participate in robotics competitions requiring programming, hardware troubleshooting, and teamwork.'}, 'hardware': ['Check power connections before troubleshooting.', 'Verify motors and sensors are connected correctly.'], 'software': ['Check code execution logs.', 'Verify communication between components.']}
+
+Student Question:
+a digital sensor
+
+Response:
+
+I think I can help, but I'll need the sensor's name to look it up in the relevant document. Could you please provide the sensor's name?"
