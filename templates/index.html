@@ -1,1 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Robotics Support Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
 
+<body>
+
+<h1>🤖 Robotics Support Assistant</h1>
+
+<input id="message" placeholder="Ask a robotics question">
+
+<button onclick="sendMessage()">Send</button>
+
+<p id="response"></p>
+
+
+<script>
+
+async function sendMessage(){
+
+    let message = document.getElementById("message").value;
+
+    let result = await fetch("/chat", {
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+            message:message
+        })
+    });
+
+    let data = await result.json();
+
+    document.getElementById("response").innerText =
+        data.response;
+}
+
+</script>
+
+</body>
+</html>
