@@ -1,0 +1,32 @@
+timestamp,question,response2026-08-01 14:03:29.866291,My sensor is not detecting anything,"
+Based on the robotics knowledge base:
+
+{'robotics_competition': {'description': 'Students participate in robotics competitions requiring programming, hardware troubleshooting, and teamwork.'}, 'hardware': ['Check power connections before troubleshooting.', 'Verify motors and sensors are connected correctly.'], 'software': ['Check code execution logs.', 'Verify communication between components.']}
+
+Student question:
+My sensor is not detecting anything
+
+Answer:
+This is a placeholder response. The Hugging Face model will be connected here.
+"
+2026-08-01 14:06:46.151072,my sensor is not working,"
+Generated response using prompt:
+
+You are a robotics support assistant helping students troubleshoot robotics projects.
+
+Your goals:
+- Provide clear technical explanations
+- Use the provided context
+- Admit when information is unavailable
+- Avoid making unsupported assumptions
+
+Context:
+{'robotics_competition': {'description': 'Students participate in robotics competitions requiring programming, hardware troubleshooting, and teamwork.'}, 'hardware': ['Check power connections before troubleshooting.', 'Verify motors and sensors are connected correctly.'], 'software': ['Check code execution logs.', 'Verify communication between components.']}
+
+Student Question:
+my sensor is not working
+
+Response:
+
+[LLM RESPONSE WILL GO HERE]
+"
