@@ -1,1 +1,13 @@
-
+{
+    "robotics_competition": {
+        "description": "Students participate in robotics competitions requiring programming, hardware troubleshooting, and teamwork."
+    },
+    "hardware": [
+        "Check power connections before troubleshooting.",
+        "Verify motors and sensors are connected correctly."
+    ],
+    "software": [
+        "Check code execution logs.",
+        "Verify communication between components."
+    ]
+}
