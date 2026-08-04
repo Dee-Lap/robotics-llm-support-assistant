@@ -1,4 +1,4 @@
-# 🤖 Robotics Support Assistant
+# Robotics Support Assistant
 
 An AI-powered troubleshooting assistant that helps robotics students diagnose hardware and software issues through natural language interaction.
 
@@ -78,7 +78,7 @@ Generated Response
 Response Processing
 ```
 
-### 📚 Context-Augmented Prompting
+### Context-Augmented Prompting
 
 The assistant uses a structured robotics knowledge base to provide relevant troubleshooting information.
 
@@ -105,7 +105,7 @@ My robot sensor is not working.
 
 This helps guide responses and reduces unsupported answers.
 
-### 📊 Conversation Logging and Evaluation
+### Conversation Logging and Evaluation
 
 The system records chatbot interactions for analysis.
 
