@@ -2,7 +2,7 @@
 
 An AI-powered troubleshooting assistant that helps robotics students diagnose hardware and software issues through natural language interaction.
 
-!<img width="423" height="127" alt="image" src="https://github.com/user-attachments/assets/dcedef75-f5bb-44d1-8526-7b053ab0917b" />
+<img width="423" height="127" alt="image" src="https://github.com/user-attachments/assets/dcedef75-f5bb-44d1-8526-7b053ab0917b" />
 
 
 ---
@@ -26,7 +26,7 @@ The goal of this project is to demonstrate an end-to-end LLM application pipelin
 
 ## Demo
 
-!<img width="422" height="111" alt="image" src="https://github.com/user-attachments/assets/0626f66b-cae0-4734-8906-ffa85baeeb42" />
+<img width="422" height="111" alt="image" src="https://github.com/user-attachments/assets/0626f66b-cae0-4734-8906-ffa85baeeb42" />
 
 
 Example interaction:
