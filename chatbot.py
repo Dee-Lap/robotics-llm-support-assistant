@@ -52,7 +52,8 @@ def save_conversation(question, response):
         writer.writerow([
             datetime.now(),
             question,
-            response
+            response,
+            len(response)
         ])
 
 

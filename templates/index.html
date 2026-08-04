@@ -1,44 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
     <title>Robotics Support Assistant</title>
-    <link rel="stylesheet" href="/static/style.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-<h1>🤖 Robotics Support Assistant</h1>
+<div class="app">
 
-<input id="message" placeholder="Ask a robotics question">
+    <header>
+        <h1>Robotics Support Assistant</h1>
+        <p>AI-powered troubleshooting assistant for robotics students</p>
+    </header>
 
-<button onclick="sendMessage()">Send</button>
 
-<p id="response"></p>
+    <div id="chat-container">
+
+        <div class="message assistant">
+            <div class="avatar">🤖</div>
+            <div class="bubble">
+                Hello! I'm your robotics support assistant.
+                Ask me about hardware or software troubleshooting.
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="input-area">
+
+        <input 
+            id="message"
+            placeholder="Ask a robotics question..."
+        >
+
+        <button onclick="sendMessage()">
+            Send
+        </button>
+
+    </div>
+
+</div>
 
 
 <script>
 
 async function sendMessage(){
 
-    let message = document.getElementById("message").value;
+    const input = document.getElementById("message");
+    const chat = document.getElementById("chat-container");
 
-    let result = await fetch("/chat", {
+    const question = input.value.trim();
+
+    if(!question){
+        return;
+    }
+
+
+    // User message
+
+    chat.innerHTML += `
+        <div class="message user">
+            <div class="bubble">
+                ${question}
+            </div>
+            <div class="avatar">👤</div>
+        </div>
+    `;
+
+
+    input.value="";
+
+
+    // Loading indicator
+
+    chat.innerHTML += `
+        <div class="message assistant" id="loading">
+            <div class="avatar">🤖</div>
+            <div class="bubble">
+                Thinking...
+            </div>
+        </div>
+    `;
+
+
+    chat.scrollTop = chat.scrollHeight;
+
+
+    const response = await fetch("/chat", {
+
         method:"POST",
+
         headers:{
             "Content-Type":"application/json"
         },
+
         body:JSON.stringify({
-            message:message
+            message:question
         })
+
     });
 
-    let data = await result.json();
 
-    document.getElementById("response").innerText =
-        data.response;
+    const data = await response.json();
+
+
+    document.getElementById("loading").remove();
+
+
+    chat.innerHTML += `
+        <div class="message assistant">
+            <div class="avatar">🤖</div>
+            <div class="bubble">
+                ${data.response}
+            </div>
+        </div>
+    `;
+
+
+    chat.scrollTop = chat.scrollHeight;
+
 }
+
+
+document
+.getElementById("message")
+.addEventListener("keypress", function(event){
+
+    if(event.key === "Enter"){
+        sendMessage();
+    }
+
+});
+
 
 </script>
 
+
 </body>
+
 </html>
