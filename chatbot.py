@@ -73,10 +73,13 @@ def generate_response(question):
         do_sample=True
     )
 
+    generated_tokens = outputs[0][inputs["input_ids"].shape[-1]:]
+
     response = tokenizer.decode(
-        outputs[0],
-        skip_special_tokens=True
-    )
+    generated_tokens,
+    skip_special_tokens=True
+)
+    response = clean_response(response)
 
     if validate_response(response):
         save_conversation(question, response)
@@ -98,3 +101,16 @@ def format_context(context):
         lines.append(f"- {item}")
 
     return "\n".join(lines)
+
+def clean_response(response):
+
+    remove_patterns = [
+        "Response:",
+        "Answer:",
+        "Assistant:"
+    ]
+
+    for pattern in remove_patterns:
+        response = response.replace(pattern, "")
+
+    return response.strip()
